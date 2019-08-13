@@ -115,3 +115,99 @@ let total = height.reduce((sum, item) => {
     return sum + item;
 });
 console.log(total);
+
+
+
+// STRING LIRETAL
+
+// * cara lama:
+var barang = "sepatu";
+var promo = "harga " + barang + "diskon 70%";
+console.log(promo);
+console.log(typeof promo);
+
+// * cara baru:
+var merkHP = "Xiaomi";
+var diskon = `harga HP merk ${merkHP} sedang ada diskon 50%`;
+console.log(diskon);
+console.log(typeof diskon);
+
+// contoh lain :
+var text = `Selamat belajar
+ES6 sampai paham
+sepenuhnya`;
+
+console.log(text);
+
+// keuntungan jika menggunakan backtik dan string literal tidak perlu menggunakan konkatenasi / tanda + dan <br> untuk pindah baris, bisa juga untuk memasukkan inline function
+
+function upper(s) {
+    return s. toUpperCase();
+}
+var siapa = 'koding';
+var text = `selamat datang ${upper('Teman')}
+${siapa}`;
+console.log(text);
+
+// backtik sudah support scope literals (tidak mempengaruhi block scope lain dengan nama variabel yang sama)
+
+function mangga(str) {
+    var jenis = 'harumanis';
+    console.log(str)
+}
+
+function jeruk() {
+    var jenis = 'mandarin';
+    mangga(`kombinasi jus mangga dan jeruk ${jenis}`);
+}
+
+var jenis = 'global';
+jeruk();
+
+
+// backtik juga bisa menampilkan raw dari string
+console.log( String.raw`Hello\nWorld`);
+console.log(`Hello\nWorld`);
+
+
+
+// SPREAD & REST
+
+// 1. Rest (memisahkan isi array):
+var [c, d, ...m] = [1, 2, 3, 4, 5];
+
+// yg dilakukan javascript adalah:
+// var c = 1;
+// var d = 2;
+// var m = [3, 4, 5]; // disebut rest / sisa array
+
+console.log(c,d,m);
+
+// Spread (menggabungkan isi array):
+var params = ['Hello', true, 23];
+var other = [1, 2, ...params, 3];
+
+// yang dilakukan js adalah:
+// var other = [1, 2].concat[params];
+
+var a = [2, 3, 4];
+var b = [1, ...a, 5];
+console.log(b);
+
+
+
+// DESTRUCTURING
+
+// 1. mengkestraksi Array:
+function printElementPertamaDanKedua([first, second]) {
+    console.log('element pertama adalah ' + first + ', element kedua adalah ' + second);
+}
+
+function printElementKeduaDanKeempat([, second, , fourth]) {
+    console.log(`element kedua ${second} dan keempat ${fourth}`);
+};
+
+var arr = [1, 2, 3, 4, 5];
+
+printElementPertamaDanKedua();
+printElementKeduaDanKeempat();
